@@ -176,8 +176,56 @@
         <li><strong>Minimal Data:</strong> We only collect what's necessary for the service</li>
       </ul>
       
+      <h2>Chrome Extension</h2>
+      <p>
+        In addition to our macOS application, S2S is available as a Chrome Extension that provides real-time translation for browser-based video and audio content. The Chrome Extension follows the same privacy principles but has some platform-specific considerations:
+      </p>
+
+      <h3>Chrome Extension Permissions</h3>
+      <p>
+        The Chrome Extension requires the following permissions to function:
+      </p>
+      <ul>
+        <li><strong>tabCapture:</strong> Captures audio from the active browser tab for translation (only when you click "Start")</li>
+        <li><strong>offscreen:</strong> Processes audio in a background context for performance</li>
+        <li><strong>storage:</strong> Saves your configuration preferences and transcript history locally</li>
+        <li><strong>scripting:</strong> Injects subtitle overlay on web pages</li>
+        <li><strong>activeTab:</strong> Accesses the current tab to display subtitles</li>
+        <li><strong>alarms:</strong> Maintains background service for health monitoring</li>
+        <li><strong>tabs:</strong> Queries active tab information</li>
+      </ul>
+
+      <h3>Chrome Extension Data Collection</h3>
+      <ul>
+        <li><strong>Audio Capture:</strong> Audio from the active tab is sent to translation API only when you explicitly start translation</li>
+        <li><strong>Configuration:</strong> API credentials and preferences stored in Chrome's sync storage (encrypted by Chrome)</li>
+        <li><strong>Transcript History:</strong> Up to 200 recent translations stored locally in Chrome's local storage</li>
+        <li><strong>No Browsing History:</strong> We do not access, collect, or track your browsing history</li>
+        <li><strong>No Cross-Site Tracking:</strong> The extension only activates when you use it</li>
+      </ul>
+
+      <h3>Chrome Extension Data Security</h3>
+      <ul>
+        <li>All communication with translation API uses encrypted WebSocket (WSS)</li>
+        <li>API credentials are stored securely using Chrome's storage API</li>
+        <li>No data is transmitted without your explicit action (clicking "Start Current Tab")</li>
+        <li>Transcript history can be cleared at any time from the extension popup</li>
+        <li>All data is deleted when you uninstall the extension</li>
+      </ul>
+
+      <h3>Chrome Web Store Compliance</h3>
+      <p>
+        The S2S Chrome Extension is designed to comply with Chrome Web Store Developer Program Policies:
+      </p>
+      <ul>
+        <li>Minimal permissions: Only requests permissions necessary for core functionality</li>
+        <li>Single purpose: Focused solely on real-time speech translation</li>
+        <li>User control: All translation actions require explicit user consent</li>
+        <li>No data sale: We do not sell, share, or use your data for advertising</li>
+      </ul>
+
       <h2>Third-Party Services</h2>
-      
+
       <h3>ByteDance Translation API</h3>
       <p>
         S2S uses ByteDance's AST (Automatic Speech Translation) API to provide translation services. When you use S2S:
