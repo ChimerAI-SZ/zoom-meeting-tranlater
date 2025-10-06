@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BabelAI</title>
+  <link rel="stylesheet" href="../styles/design-system.css">
+  <style>
+    /* Popup specific styles */
+    body {
+      margin: 0;
+      width: 400px;
+      min-height: 500px;
+    }
+
+    .container {
+      width: 100%;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+
+    /* Dark mode support */
+    @media (prefers-color-scheme: dark) {
+      .container {
+        background: linear-gradient(135deg, #2D3748 0%, #1A202C 100%);
+      }
+    }
+
+    /* Custom animations */
+    .pulse-glow {
+      animation: pulseGlow 2s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        box-shadow: 0 4px 15px rgba(74, 85, 104, 0.2);
+      }
+      50% {
+        box-shadow: 0 4px 25px rgba(74, 85, 104, 0.4);
+      }
+    }
+
+    /* Collapsible sections */
+    .collapsible {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .collapsible.expanded {
+      max-height: 500px;
+    }
+
+    /* Settings grid */
+    .settings-grid {
+      display: grid;
+      gap: var(--spacing-md);
+    }
+
+    .setting-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--spacing-sm) 0;
+    }
+
+    .setting-label {
+      font-size: var(--font-size-sm);
+      color: var(--color-text-secondary);
+      flex: 1;
+    }
+
+    .setting-control {
+      flex: 1;
+      text-align: right;
+    }
+
+    /* Range slider styling */
+    input[type="range"] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 4px;
+      border-radius: 2px;
+      background: var(--color-bg-tertiary);
+      outline: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+      background: var(--color-accent);
+    }
+
+    /* Select styling */
+    select {
+      padding: var(--spacing-xs) var(--spacing-sm);
+      border: 1px solid var(--color-bg-tertiary);
+      border-radius: var(--radius-sm);
+      background: var(--color-bg-primary);
+      color: var(--color-text-primary);
+      font-size: var(--font-size-sm);
+      cursor: pointer;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    select:hover {
+      border-color: var(--color-secondary);
+    }
+
+    select:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(74, 85, 104, 0.1);
+    }
+
+    /* Health metrics grid */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-sm);
+      margin-top: var(--spacing-md);
+    }
+
+    /* History list */
+    .history-list {
+      max-height: 300px;
+      overflow-y: auto;
+      margin-top: var(--spacing-md);
+    }
+
+    .history-item {
+      padding: var(--spacing-sm);
+      border-bottom: 1px solid var(--color-bg-tertiary);
+      transition: background 0.2s ease;
+    }
+
+    .history-item:hover {
+      background: var(--color-bg-secondary);
+    }
+
+    .history-source {
+      font-size: var(--font-size-xs);
+      color: var(--color-text-tertiary);
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .history-target {
+      font-size: var(--font-size-sm);
+      color: var(--color-text-primary);
+      font-weight: var(--font-weight-medium);
+    }
+
+    /* Icon styles */
+    .icon {
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: var(--spacing-xs);
+    }
+
+    /* Language switch */
+    .lang-switch {
+      position: absolute;
+      top: var(--spacing-md);
+      right: var(--spacing-md);
+      display: flex;
+      gap: var(--spacing-xs);
+      z-index: 100;
+    }
+
+    .lang-btn {
+      padding: var(--spacing-xs) var(--spacing-sm);
+      font-size: var(--font-size-xs);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius-sm);
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .lang-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: var(--color-text-primary);
+    }
+
+    .lang-btn.active {
+      background: var(--color-primary);
+      color: white;
+      border-color: var(--color-primary);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Language Switch -->
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="zh_CN">中文</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+
+    <!-- Header -->
+    <div class="header fade-in">
+      <div class="logo">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="20" fill="var(--color-primary)" opacity="0.1"/>
+          <path d="M24 8C15.2 8 8 15.2 8 24s7.2 16 16 16 16-7.2 16-16S32.8 8 24 8zm7.4 24.4l-1.8-1.8c-.8.6-1.8 1-2.8 1.2v2.6h-2.4v-2.6c-1-.2-2-.6-2.8-1.2l-1.8 1.8-1.8-1.8 1.8-1.8c-.6-.8-1-1.8-1.2-2.8h-2.6v-2.4h2.6c.2-1 .6-2 1.2-2.8l-1.8-1.8 1.8-1.8 1.8 1.8c.8-.6 1.8-1 2.8-1.2v-2.6h2.4v2.6c1 .2 2 .6 2.8 1.2l1.8-1.8 1.8 1.8-1.8 1.8c.6.8 1 1.8 1.2 2.8h2.6v2.4h-2.6c-.2 1-.6 2-1.2 2.8l1.8 1.8-1.8 1.8z" fill="var(--color-primary)"/>
+          <circle cx="24" cy="24" r="4" fill="var(--color-accent)"/>
+        </svg>
+      </div>
+      <h1 class="text-xxl text-primary" data-i18n="appTitle">BabelAI</h1>
+      <p class="text-sm text-secondary" data-i18n="appSubtitle">实时语音翻译助手</p>
+    </div>
+
+    <!-- Main Action Button -->
+    <div class="section text-center">
+      <button id="mainButton" class="btn btn-primary btn-large pulse-glow">
+        <span class="spinner hidden"></span>
+        <span class="btn-text" data-i18n="buttonStart">开始翻译</span>
+      </button>
+    </div>
+
+    <!-- Status Indicator -->
+    <div class="section">
+      <div class="status-indicator">
+        <span class="status-dot" id="statusDot"></span>
+        <span class="text-sm" id="statusText" data-i18n="statusIdle">就绪</span>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="section flex justify-center gap-md">
+      <button class="btn btn-secondary btn-icon" id="settingsToggle" title="Settings">
+        <svg class="icon" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+        </svg>
+      </button>
+      <button class="btn btn-secondary btn-icon" id="healthToggle" title="Health">
+        <svg class="icon" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
+        </svg>
+      </button>
+      <button class="btn btn-secondary btn-icon" id="historyToggle" title="History">
+        <svg class="icon" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Settings Section (Collapsible) -->
+    <div id="settingsSection" class="section collapsible">
+      <div class="card">
+        <h3 class="text-md text-secondary mb-md" data-i18n="settingsSubtitle">字幕设置</h3>
+
+        <div class="settings-grid">
+          <!-- Font Size -->
+          <div class="setting-row">
+            <label class="setting-label" data-i18n="settingsFontSize">字体大小</label>
+            <div class="setting-control">
+              <input type="range" id="fontSizeRange" min="12" max="24" value="16">
+              <span id="fontSizeValue" class="text-xs">16px</span>
+            </div>
+          </div>
+
+          <!-- Opacity -->
+          <div class="setting-row">
+            <label class="setting-label" data-i18n="settingsOpacity">透明度</label>
+            <div class="setting-control">
+              <input type="range" id="opacityRange" min="30" max="100" value="95">
+              <span id="opacityValue" class="text-xs">95%</span>
+            </div>
+          </div>
+
+          <!-- Position -->
+          <div class="setting-row">
+            <label class="setting-label" data-i18n="settingsPosition">位置</label>
+            <div class="setting-control">
+              <select id="positionSelect">
+                <option value="auto" data-i18n="positionAuto">自动</option>
+                <option value="bottom-center" data-i18n="positionBottomCenter">底部居中</option>
+                <option value="top-center" data-i18n="positionTopCenter">顶部居中</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Display Mode -->
+          <div class="setting-row">
+            <label class="setting-label" data-i18n="settingsDisplayMode">显示模式</label>
+            <div class="setting-control">
+              <select id="displayModeSelect">
+                <option value="both" data-i18n="displayModeBoth">双语对照</option>
+                <option value="source" data-i18n="displayModeSource">仅原文</option>
+                <option value="translation" data-i18n="displayModeTranslation">仅译文</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Health Monitoring Section (Collapsible) -->
+    <div id="healthSection" class="section collapsible">
+      <div class="card">
+        <h3 class="text-md text-secondary mb-md" data-i18n="healthTitle">运行状态</h3>
+
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-label">
+              <span data-i18n="healthUptime">运行时间</span>
+            </div>
+            <div class="metric-value" id="healthUptime">0s</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-label">
+              <span data-i18n="healthConnection">连接延迟</span>
+            </div>
+            <div class="metric-value" id="healthPing">--</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-label">
+              <span data-i18n="healthAudioLevel">音频电平</span>
+            </div>
+            <div class="metric-value" id="healthRMS">--</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-label">
+              <span data-i18n="healthQueue">处理队列</span>
+            </div>
+            <div class="metric-value" id="healthQueue">0</div>
+          </div>
+        </div>
+
+        <div class="metrics-grid mt-md">
+          <div class="text-xs">
+            <span data-i18n="healthEvents">事件</span>: <span id="healthEvents">0</span>
+          </div>
+          <div class="text-xs">
+            <span data-i18n="healthErrors">错误</span>: <span id="healthErrors">0</span>
+          </div>
+          <div class="text-xs">
+            <span data-i18n="healthReconnects">重连</span>: <span id="healthReconnects">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- History Section (Collapsible) -->
+    <div id="historySection" class="section collapsible">
+      <div class="card">
+        <div class="flex justify-between items-center mb-md">
+          <h3 class="text-md text-secondary" data-i18n="historyTitle">翻译历史</h3>
+          <button class="btn btn-secondary" id="clearHistoryBtn" data-i18n="buttonClearHistory">清空</button>
+        </div>
+
+        <div class="history-list" id="historyList">
+          <div class="text-center text-tertiary" data-i18n="historyEmpty">暂无历史记录</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="popup-new.js"></script>
+</body>
+</html>

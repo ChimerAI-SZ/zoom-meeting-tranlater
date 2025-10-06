@@ -1,0 +1,238 @@
+{
+  "extensionName": {
+    "message": "BabelAI - Real-time Speech Translation",
+    "description": "Extension name"
+  },
+  "extensionDescription": {
+    "message": "Real-time speech translation assistant for video and audio content",
+    "description": "Extension description"
+  },
+
+  "appTitle": {
+    "message": "BabelAI",
+    "description": "App title"
+  },
+  "appSubtitle": {
+    "message": "Real-time Speech Translation",
+    "description": "App subtitle"
+  },
+
+  "buttonStart": {
+    "message": "Start Translation",
+    "description": "Start button"
+  },
+  "buttonStop": {
+    "message": "Stop Translation",
+    "description": "Stop button"
+  },
+  "buttonSettings": {
+    "message": "Settings",
+    "description": "Settings button"
+  },
+  "buttonHistory": {
+    "message": "History",
+    "description": "History button"
+  },
+  "buttonClearHistory": {
+    "message": "Clear History",
+    "description": "Clear history button"
+  },
+
+  "statusIdle": {
+    "message": "Ready",
+    "description": "Idle status"
+  },
+  "statusConnecting": {
+    "message": "Connecting...",
+    "description": "Connecting status"
+  },
+  "statusConnected": {
+    "message": "Connected",
+    "description": "Connected status"
+  },
+  "statusTranslating": {
+    "message": "Translating",
+    "description": "Translating status"
+  },
+  "statusError": {
+    "message": "Connection Failed",
+    "description": "Error status"
+  },
+  "statusStopping": {
+    "message": "Stopping...",
+    "description": "Stopping status"
+  },
+
+  "settingsTitle": {
+    "message": "Settings",
+    "description": "Settings title"
+  },
+  "settingsSubtitle": {
+    "message": "Subtitle Settings",
+    "description": "Subtitle settings"
+  },
+  "settingsFontSize": {
+    "message": "Font Size",
+    "description": "Font size setting"
+  },
+  "settingsOpacity": {
+    "message": "Opacity",
+    "description": "Opacity setting"
+  },
+  "settingsPosition": {
+    "message": "Position",
+    "description": "Position setting"
+  },
+  "settingsDisplayMode": {
+    "message": "Display Mode",
+    "description": "Display mode setting"
+  },
+  "settingsLanguage": {
+    "message": "Interface Language",
+    "description": "Interface language setting"
+  },
+
+  "displayModeBoth": {
+    "message": "Bilingual",
+    "description": "Both languages"
+  },
+  "displayModeSource": {
+    "message": "Source Only",
+    "description": "Source language only"
+  },
+  "displayModeTranslation": {
+    "message": "Translation Only",
+    "description": "Translation only"
+  },
+
+  "positionAuto": {
+    "message": "Auto",
+    "description": "Auto position"
+  },
+  "positionBottomCenter": {
+    "message": "Bottom Center",
+    "description": "Bottom center position"
+  },
+  "positionTopCenter": {
+    "message": "Top Center",
+    "description": "Top center position"
+  },
+
+  "healthTitle": {
+    "message": "Health Status",
+    "description": "Health monitoring title"
+  },
+  "healthUptime": {
+    "message": "Uptime",
+    "description": "Uptime"
+  },
+  "healthConnection": {
+    "message": "Latency",
+    "description": "Connection latency"
+  },
+  "healthAudioLevel": {
+    "message": "Audio Level",
+    "description": "Audio level"
+  },
+  "healthQueue": {
+    "message": "Queue",
+    "description": "Processing queue"
+  },
+  "healthEvents": {
+    "message": "Events",
+    "description": "Event count"
+  },
+  "healthErrors": {
+    "message": "Errors",
+    "description": "Error count"
+  },
+  "healthReconnects": {
+    "message": "Reconnects",
+    "description": "Reconnect count"
+  },
+
+  "audioStatusGood": {
+    "message": "Audio OK",
+    "description": "Audio status good"
+  },
+  "audioStatusWeak": {
+    "message": "Audio Weak",
+    "description": "Audio status weak"
+  },
+  "audioStatusNoAudio": {
+    "message": "No Audio",
+    "description": "No audio"
+  },
+
+  "historyTitle": {
+    "message": "Translation History",
+    "description": "History title"
+  },
+  "historyEmpty": {
+    "message": "No history yet",
+    "description": "Empty history"
+  },
+
+  "errorNoTab": {
+    "message": "Please open a webpage first",
+    "description": "No tab error"
+  },
+  "errorNoAudio": {
+    "message": "No audio on this page",
+    "description": "No audio error"
+  },
+  "errorConnection": {
+    "message": "Connection failed, please check your network",
+    "description": "Connection error"
+  },
+  "errorPermission": {
+    "message": "Audio permission required",
+    "description": "Permission error"
+  },
+  "errorConfig": {
+    "message": "Failed to load configuration",
+    "description": "Config error"
+  },
+  "errorGeneric": {
+    "message": "An error occurred, please try again",
+    "description": "Generic error"
+  },
+
+  "tipStart": {
+    "message": "Click to start translating audio from the current page",
+    "description": "Start tip"
+  },
+  "tipSettings": {
+    "message": "Adjust subtitle style and display settings",
+    "description": "Settings tip"
+  },
+  "tipHistory": {
+    "message": "View recent translation history",
+    "description": "History tip"
+  },
+
+  "welcomeTitle": {
+    "message": "Welcome to BabelAI",
+    "description": "Welcome title"
+  },
+  "welcomeMessage": {
+    "message": "Thank you for installing! Let's start your real-time translation journey",
+    "description": "Welcome message"
+  },
+  "welcomeStep1": {
+    "message": "1. Open a webpage with video or audio",
+    "description": "Step 1"
+  },
+  "welcomeStep2": {
+    "message": "2. Click the extension icon",
+    "description": "Step 2"
+  },
+  "welcomeStep3": {
+    "message": "3. Click \"Start Translation\" button",
+    "description": "Step 3"
+  },
+  "welcomeNote": {
+    "message": "Tip: Works with YouTube, Vimeo, and most video sites",
+    "description": "Welcome tip"
+  }
+}

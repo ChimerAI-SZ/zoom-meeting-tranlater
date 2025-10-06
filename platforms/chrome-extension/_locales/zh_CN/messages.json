@@ -1,0 +1,238 @@
+{
+  "extensionName": {
+    "message": "BabelAI - 实时语音翻译",
+    "description": "扩展名称"
+  },
+  "extensionDescription": {
+    "message": "实时语音翻译助手，支持视频和音频内容的即时翻译",
+    "description": "扩展描述"
+  },
+
+  "appTitle": {
+    "message": "BabelAI",
+    "description": "应用标题"
+  },
+  "appSubtitle": {
+    "message": "实时语音翻译助手",
+    "description": "应用副标题"
+  },
+
+  "buttonStart": {
+    "message": "开始翻译",
+    "description": "开始按钮"
+  },
+  "buttonStop": {
+    "message": "停止翻译",
+    "description": "停止按钮"
+  },
+  "buttonSettings": {
+    "message": "设置",
+    "description": "设置按钮"
+  },
+  "buttonHistory": {
+    "message": "历史记录",
+    "description": "历史按钮"
+  },
+  "buttonClearHistory": {
+    "message": "清空历史",
+    "description": "清空历史按钮"
+  },
+
+  "statusIdle": {
+    "message": "就绪",
+    "description": "空闲状态"
+  },
+  "statusConnecting": {
+    "message": "连接中...",
+    "description": "连接中状态"
+  },
+  "statusConnected": {
+    "message": "已连接",
+    "description": "已连接状态"
+  },
+  "statusTranslating": {
+    "message": "翻译中",
+    "description": "翻译中状态"
+  },
+  "statusError": {
+    "message": "连接失败",
+    "description": "错误状态"
+  },
+  "statusStopping": {
+    "message": "正在停止...",
+    "description": "停止中状态"
+  },
+
+  "settingsTitle": {
+    "message": "设置",
+    "description": "设置标题"
+  },
+  "settingsSubtitle": {
+    "message": "字幕设置",
+    "description": "字幕设置"
+  },
+  "settingsFontSize": {
+    "message": "字体大小",
+    "description": "字体大小设置"
+  },
+  "settingsOpacity": {
+    "message": "透明度",
+    "description": "透明度设置"
+  },
+  "settingsPosition": {
+    "message": "位置",
+    "description": "位置设置"
+  },
+  "settingsDisplayMode": {
+    "message": "显示模式",
+    "description": "显示模式设置"
+  },
+  "settingsLanguage": {
+    "message": "界面语言",
+    "description": "界面语言设置"
+  },
+
+  "displayModeBoth": {
+    "message": "双语对照",
+    "description": "双语显示"
+  },
+  "displayModeSource": {
+    "message": "仅原文",
+    "description": "仅显示原文"
+  },
+  "displayModeTranslation": {
+    "message": "仅译文",
+    "description": "仅显示译文"
+  },
+
+  "positionAuto": {
+    "message": "自动",
+    "description": "自动位置"
+  },
+  "positionBottomCenter": {
+    "message": "底部居中",
+    "description": "底部居中位置"
+  },
+  "positionTopCenter": {
+    "message": "顶部居中",
+    "description": "顶部居中位置"
+  },
+
+  "healthTitle": {
+    "message": "运行状态",
+    "description": "健康监控标题"
+  },
+  "healthUptime": {
+    "message": "运行时间",
+    "description": "运行时间"
+  },
+  "healthConnection": {
+    "message": "连接延迟",
+    "description": "连接延迟"
+  },
+  "healthAudioLevel": {
+    "message": "音频电平",
+    "description": "音频电平"
+  },
+  "healthQueue": {
+    "message": "处理队列",
+    "description": "处理队列"
+  },
+  "healthEvents": {
+    "message": "事件计数",
+    "description": "事件计数"
+  },
+  "healthErrors": {
+    "message": "错误次数",
+    "description": "错误次数"
+  },
+  "healthReconnects": {
+    "message": "重连次数",
+    "description": "重连次数"
+  },
+
+  "audioStatusGood": {
+    "message": "音频正常",
+    "description": "音频状态良好"
+  },
+  "audioStatusWeak": {
+    "message": "音频较弱",
+    "description": "音频状态较弱"
+  },
+  "audioStatusNoAudio": {
+    "message": "无音频",
+    "description": "无音频"
+  },
+
+  "historyTitle": {
+    "message": "翻译历史",
+    "description": "历史记录标题"
+  },
+  "historyEmpty": {
+    "message": "暂无历史记录",
+    "description": "无历史记录"
+  },
+
+  "errorNoTab": {
+    "message": "请先打开一个网页",
+    "description": "无标签页错误"
+  },
+  "errorNoAudio": {
+    "message": "当前页面没有音频",
+    "description": "无音频错误"
+  },
+  "errorConnection": {
+    "message": "连接失败，请检查网络",
+    "description": "连接错误"
+  },
+  "errorPermission": {
+    "message": "需要音频权限",
+    "description": "权限错误"
+  },
+  "errorConfig": {
+    "message": "配置加载失败",
+    "description": "配置错误"
+  },
+  "errorGeneric": {
+    "message": "出现错误，请重试",
+    "description": "通用错误"
+  },
+
+  "tipStart": {
+    "message": "点击开始翻译当前页面的音频",
+    "description": "开始提示"
+  },
+  "tipSettings": {
+    "message": "调整字幕样式和显示设置",
+    "description": "设置提示"
+  },
+  "tipHistory": {
+    "message": "查看最近的翻译记录",
+    "description": "历史提示"
+  },
+
+  "welcomeTitle": {
+    "message": "欢迎使用 BabelAI",
+    "description": "欢迎标题"
+  },
+  "welcomeMessage": {
+    "message": "感谢安装！让我们开始您的实时翻译之旅",
+    "description": "欢迎消息"
+  },
+  "welcomeStep1": {
+    "message": "1. 打开包含视频或音频的网页",
+    "description": "步骤1"
+  },
+  "welcomeStep2": {
+    "message": "2. 点击扩展图标",
+    "description": "步骤2"
+  },
+  "welcomeStep3": {
+    "message": "3. 点击\"开始翻译\"按钮",
+    "description": "步骤3"
+  },
+  "welcomeNote": {
+    "message": "提示：支持YouTube、Bilibili等主流视频网站",
+    "description": "欢迎提示"
+  }
+}

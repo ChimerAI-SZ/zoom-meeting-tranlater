@@ -1,16 +1,17 @@
 {
   "manifest_version": 3,
-  "name": "BabelAI",
+  "name": "__MSG_extensionName__",
   "short_name": "BabelAI",
-  "description": "Real-time speech-to-speech translation with live subtitles. Translate video/audio content instantly with professional-grade echo cancellation and TTS playback.",
+  "description": "__MSG_extensionDescription__",
   "version": "1.0.0",
   "minimum_chrome_version": "116",
   "author": "BabelAI Team",
   "homepage_url": "https://github.com/YOUR-ORG/s2s",
   "privacy_policy": "https://babelai.app/privacy.html",
+  "default_locale": "en",
   "action": {
     "default_title": "BabelAI - Real-time Translation",
-    "default_popup": "popup/popup.html"
+    "default_popup": "popup/popup-new.html"
   },
   "icons": {
     "16": "icons/icon16.png",
@@ -19,8 +20,7 @@
     "128": "icons/icon128.png"
   },
   "background": {
-    "service_worker": "service-worker.js",
-    "type": "module"
+    "service_worker": "service-worker.js"
   },
   "permissions": [
     "tabCapture",
